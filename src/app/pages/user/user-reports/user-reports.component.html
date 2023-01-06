@@ -1,0 +1,113 @@
+<div class="box mt-4">
+    <div class="rows is-vcentered">
+        <div class="columns">
+            <div class="column is-4">
+                <div class="is-size-4	">{{userDetails.firstName}} {{userDetails.lastName}}</div>
+            </div>
+            <div class="column is-4">
+                <div class="is-size-4	">
+                    <div class="block">
+                        <button class="button is-danger" (click)="delete()">Delete user</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="is-size-4	">
+                    <div class="block">
+                        <button class="button is-info">Update user</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row is-vcentered">
+            <div class="rows">
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            <p-image src="{{userDetails.image}}" alt="Image" width="250" [preview]="true"></p-image>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.phone}}
+                        </div>
+                        <div>Contact</div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.age}}
+                        </div>
+                        <div>Age</div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.gender}}
+                        </div>
+                        <div>Gender</div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row is-vcentered">
+                <div class="rows">
+                    <div class="columns">
+                        <div class="column has-text-centered">
+                            <div class="is-size-8 has-text-weight-semibold">
+                                {{userDetails.birthDate}}
+                            </div>
+                            <div>Date of Birth</div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="is-size-8 has-text-weight-semibold">
+                                {{userDetails.bloodGroup}}
+                            </div>
+                            <div>bloodGroup</div>
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="is-size-8 has-text-weight-semibold">
+                                {{userDetails.email}}
+                            </div>
+                            <div>Email</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.address.address}}
+                            City: {{userDetails.address.city}}
+                            PostalCode: {{userDetails.address.postalCode}}
+                            State: {{userDetails.address.state}}
+                        </div>
+                        <div>Address</div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.company.name}}
+                            {{userDetails.company.address.address}}
+                            City: {{userDetails.company.address.city}}
+                            PostalCode: {{userDetails.company.address.postalCode}}
+                            State: {{userDetails.company.address.state}}
+                        </div>
+                        <div>Company Details</div>
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="is-size-8 has-text-weight-semibold">
+                            {{userDetails.university}}
+                        </div>
+                        <div>University</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

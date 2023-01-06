@@ -1,0 +1,39 @@
+<form class="box" [formGroup]="loginForm" (ngSubmit)="loginForm.status !== 'INVALID' && submitform()">
+    <div class="is-size-4 has-text-weight-bold mb-4">Admin Login</div>
+
+    <div class="field">
+        <label class="form-label">Email</label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="form-control input" id="username" formControlName="username"
+                [ngClass]="{error: getControl('email')?.errors && getControl('email')?.touched}" type="text" name=""
+                placeholder="Enter your emailid" value="" required>
+            <span class="icon is-small is-left">
+                <i class="pi pi-user"></i>
+            </span>
+        </div>
+        <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+            <small *ngIf="getControl('email')?.errors?.['required']" class="has-text-danger">Emailid is required</small>
+        </div>
+    </div>
+    <div class="field">
+        <label class="form-label">Password</label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="form-control input" id="password" formControlName="password"
+                [ngClass]="{error: getControl('password')?.errors && getControl('password')?.touched}" type="password"
+                value="" placeholder="********" required>
+            <span class="icon is-small is-left">
+                <i class="pi pi-eye"></i>
+            </span>
+        </div>
+        <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
+            <small *ngIf="getControl('password')?.errors?.['required']" class="has-text-danger">Password is
+                required</small>
+        </div>
+    </div>
+
+    <button class="button is-info" [disabled]="loginForm.status === 'INVALID'">Sign in</button>
+    <div *ngIf="error touched" class="has-text-danger">
+        <span>{{error}}</span>
+    </div>
+
+</form>

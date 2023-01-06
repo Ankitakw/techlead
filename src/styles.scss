@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+.navbar-dropdown .navbar-item{
+    white-space: normal;
+}
+html{
+    background-color: #f6f6f6;
+    min-height: 100vh;
+}
+.card.column{
+    margin: 10px 10px;
+    text-align: center;
+}
+.card-footer{
+    display: block;
+    // background-color: #2196f3;
+    padding: 10px;
+}
+form.box {
+    margin: 5em 20em;
+}
+.error {
+    border: 1px solid red;
+}
+.p-image-preview-container>img {
+    cursor: pointer;
+    width: 215px;
+    height: 100px;
+    object-fit: cover;
+}

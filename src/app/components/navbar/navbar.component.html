@@ -1,0 +1,32 @@
+<nav class="navbar has-shadow has-border navbar is-fixed-top " role="navigation" aria-label="main navigation" >
+    <div class="navbar-brand">
+        <!-- <img src="../../../assets/images/ksense-logo.png" alt="Ksense logo" width="150" padding="0" class=" ml-1"> -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end ">
+            <a class="navbar-item has-text-danger" [routerLink]="['/users']" *ngIf="login();">
+                All Users
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable" *ngIf="login();">
+                <a class="navbar-link">
+                    <i class="pi pi-user"></i>
+                </a>
+                <div class="navbar-dropdown" *ngIf="login();">
+                    <a class="navbar-item">
+                        Hello
+                    </a>
+                    <a class="navbar-item" (click)="logoutUser()">
+                        Logout
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

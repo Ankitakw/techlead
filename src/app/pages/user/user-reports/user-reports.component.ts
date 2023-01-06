@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { subscribeOn } from 'rxjs';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 //import { DownloadFileService } from 'src/app/download-file.service';
 @Component({
@@ -36,4 +37,13 @@ export class UserReportsComponent implements OnInit {
       })
     })
   }
+  update(){
+    this.route.params.subscribe((data:any)=>{
+      this.id =data.id
+    this._ApiService.updateUser(this.id).
+      subscribe((data:any)=>{
+
+      })
+  });
+}
 }

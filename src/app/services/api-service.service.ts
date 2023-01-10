@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IUsers } from '../Interfaces/users';
 import { IUser } from '../Interfaces/users';
 import { Router } from '@angular/router';
 
@@ -12,8 +13,8 @@ export class ApiServiceService {
 
   base_url = 'https://dummyjson.com';
 
-  getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`${this.base_url}/users`);
+  getUsers(): Observable<IUsers[]> {
+    return this.http.get<IUsers[]>(`${this.base_url}/users`);
   }
   getSingleUser(id: number): Observable<IUser[]> {
     return this.http.get<IUser[]>(`${this.base_url}/users/${id}`)

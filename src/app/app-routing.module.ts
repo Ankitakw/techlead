@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
-import { AuthGuard } from './auth.guard';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { AddUserComponent } from './pages/user/add-user/add-user.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
-import { UserReportsComponent } from './pages/user/user-reports/user-reports.component';
 const routes: Routes = [
-  { path: 'users', component: UserListComponent, canActivate: [AuthGuard]  },
-  { path: 'userDetails/:id', component: UserReportsComponent, canActivate: [AuthGuard] },
-  { path: 'addUser', component: AddUserComponent, canActivate: [AuthGuard] },
+  {
+    path: 'user',
+    loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
+  },
   { path: 'loginpage', component: LoginPageComponent, },
-  { path: '', redirectTo: 'loginpage', pathMatch: 'full' }
+  { path: '', redirectTo: 'loginpage', pathMatch: 'full' },
+  { path: 'customers', loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule) }
 ];
 
 @NgModule({

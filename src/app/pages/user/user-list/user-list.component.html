@@ -1,7 +1,7 @@
 <div class="box mt-4">
     <div class="columns is-vcentered">
         <div class="column is-8">
-            <div class="is-size-4	">Welcome </div>
+            <div class="is-size-4">Welcome </div>
         </div>
         <div class="column is-2 has-text-centered">
             <div class="is-size-4 has-text-weight-semibold">
@@ -11,7 +11,7 @@
         </div>
         <div class="column is-2 has-text-centered">
             <div class="is-size-4 has-text-weight-semibold">
-                <button class="button is-info" [routerLink]="[ '/addUser']" >Add User</button>
+                <button class="button is-info" [routerLink]="[ '/user/addUser']" >Add User</button>
             </div>
         </div>
     </div>
@@ -21,11 +21,11 @@
         styleClass="p-datatable-striped" [tableStyle]="{'min-width': '20rem'}"
         class="ptable table is-hoverable is-narrow" [rowsPerPageOptions]="[5,10,25,50]" [loading]="loading"
         [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [globalFilterFields]="['userName']">
+        [globalFilterFields]="['firstName']">
 
         <ng-template pTemplate="caption">
             <div class="is-flex">
-                <span><strong style="font-size: large;">User Details</strong></span>
+                <span><strong >User Details</strong></span>
                 <span class="p-input-icon-left ml-auto ">
                     <i class="pi pi-search"></i>
                     <input pInputText type="text" name="name"
@@ -39,7 +39,7 @@
             <tr>
                 <th pResizableColumn>Sr. No</th>
                 <th pResizableColumn>Name</th>
-                <th pResizableColumn pSortableColumn="count">Age<p-sortIcon field="count"></p-sortIcon> </th>
+                <th pResizableColumn pSortableColumn="age">Age<p-sortIcon field="count"></p-sortIcon> </th>
                 <th pResizableColumn>Gender</th>
                 <th pResizableColumn>Phone</th>
                 <th pResizableColumn>Action</th>
@@ -52,7 +52,7 @@
                 <td>{{user.age}}</td>
                 <td>{{user.gender}}</td>
                 <td>{{user.phone}}</td>
-                <td><a [routerLink]="['/userDetails',user.id]">VIEW</a></td>
+                <td><a [routerLink]="['/user/userDetails',user.id]">VIEW</a></td>
             </tr>
         </ng-template>
     </p-table>

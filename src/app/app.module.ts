@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './pages/user/user-list/user-list.component';
-import { UserReportsComponent } from './pages/user/user-reports/user-reports.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiServiceService } from './services/api-service.service';
 import { PrimeModule } from './prime/prime.module';
@@ -12,21 +10,21 @@ import { AuthServiceService } from './services/auth/auth-service.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddUserComponent } from './pages/user/add-user/add-user.component';
 import {MessageService} from 'primeng/api';
+import { NgTemplateOutlet } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserReportsComponent,
     NavbarComponent,
     LoginPageComponent,
-    AddUserComponent,
-  ],
+   ],
   imports: [
     BrowserModule,
+    NgTemplateOutlet,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     PrimeModule,
     ReactiveFormsModule,
     FormsModule

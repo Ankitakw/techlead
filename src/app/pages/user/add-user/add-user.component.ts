@@ -2,19 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/services/api-service.service';
-import { MessageService } from 'primeng/api';
-
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
   userDetails: any;
-  status: any;
+  status: any;    
   message: any;
 
-  constructor(private ApiService: ApiServiceService, private router: Router, private messageService:MessageService) { }
+  constructor(private ApiService: ApiServiceService, private router: Router) { }
   error = null;
   addForm = new FormGroup({
     firstName: new FormControl("", [Validators.required]),
@@ -27,9 +24,9 @@ export class AddUserComponent implements OnInit {
   getControl(name: any): AbstractControl | null {
     return this.addForm.get(name);
   }
-  submitaddform() {
-    const { firstName, lastName,age,phone,gender,email } = this.addForm.value;
-    this.ApiService.addUser({ firstName, lastName,age,phone,gender,email }).
+  submitAddForm() {
+    const { firstName, lastName, age, phone, gender, email } = this.addForm.value;
+    this.ApiService.addUser({ firstName, lastName, age, phone, gender, email }).
       subscribe((res: any) => {
         this.userDetails = res;
         this.router.navigate(['users']);
@@ -37,16 +34,6 @@ export class AddUserComponent implements OnInit {
         this.error = err.error.msg;
       });
   }
-  showSuccess() {
-    this.messageService.add({severity:'success', summary: 'Success', detail: 'Successfully added the user'});
-}
-onConfirm() {
-  this.messageService.clear('c');
-}
-
-onReject() {
-  this.messageService.clear('c');
-}
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }

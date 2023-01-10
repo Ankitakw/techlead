@@ -1,5 +1,5 @@
 
-<form class="box" [formGroup]="addForm" (ngSubmit)="addForm.status !== 'INVALID' && submitaddform()">
+<form class="box" [formGroup]="addForm" (ngSubmit)="addForm.status !== 'INVALID' && submitAddForm()">
     <div class="is-size-4 has-text-weight-bold mb-4">Add New User</div>
 
     <div class="field">
@@ -70,19 +70,8 @@
         </div>
     </div>
     
-    <button class="button is-info" pButton pRipple  (click)="showSuccess()" [disabled]="addForm.status === 'INVALID'" >ADD</button>
+    <button class="button is-info" pButton pRipple  [disabled]="addForm.status === 'INVALID'" >ADD</button>
     <div *ngIf="error touched" class="has-text-danger">
         <span>{{error}}</span>
     </div>
-    <p-toast position="top-center" key="c" (onClose)="onConfirm()" [baseZIndex]="5000">
-        <ng-template let-message pTemplate="message">
-            <div class="flex flex-column" style="flex: 1">
-                <div class="text-center">
-                    <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-                    <h4>{{message.summary}}</h4>
-                    <p>{{message.detail}}</p>
-                </div>
-            </div>
-        </ng-template>
-    </p-toast>
 </form>

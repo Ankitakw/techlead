@@ -1,18 +1,18 @@
-<form class="box" [formGroup]="loginForm" (ngSubmit)="loginForm.status !== 'INVALID' && submitform()">
-    <div class="is-size-4 has-text-weight-bold mb-4">Admin Login</div>
+<form class="box mt-6 column is-6 is-offset-3" [formGroup]="loginForm" (ngSubmit)="loginForm.status !== 'INVALID' && submitform()">
+    <div class="is-size-4 has-text-weight-bold mb-4">Login</div>
 
     <div class="field">
-        <label class="form-label">Email</label>
+        <label class="form-label">User Name</label>
         <div class="control has-icons-left has-icons-right">
             <input class="form-control input" id="username" formControlName="username"
-                [ngClass]="{error: getControl('email')?.errors && getControl('email')?.touched}" type="text" name=""
-                placeholder="Enter your emailid" value="" required>
+                [ngClass]="{error: getControl('userName')?.errors && getControl('userName')?.touched}" type="text" name=""
+                placeholder="Enter your user name" value="" required>
             <span class="icon is-small is-left">
                 <i class="pi pi-user"></i>
             </span>
         </div>
-        <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
-            <small *ngIf="getControl('email')?.errors?.['required']" class="has-text-danger">Emailid is required</small>
+        <div *ngIf="getControl('userName')?.errors && getControl('userName')?.touched">
+            <small *ngIf="getControl('userName')?.errors?.['required']" class="has-text-danger">User name id is required</small>
         </div>
     </div>
     <div class="field">
@@ -22,7 +22,7 @@
                 [ngClass]="{error: getControl('password')?.errors && getControl('password')?.touched}" type="password"
                 value="" placeholder="********" required>
             <span class="icon is-small is-left">
-                <i class="pi pi-eye"></i>
+                <i class="pi pi-lock"></i>
             </span>
         </div>
         <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">

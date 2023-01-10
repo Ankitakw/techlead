@@ -1,47 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IUser } from 'src/app/Interfaces/users';
 import { ApiServiceService } from 'src/app/services/api-service.service';
-import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styles: [`
-  .ptable th td {
-    width: max-content;
-  }
-  `]
+  styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent implements OnInit {
-  users :any;
+  users: [IUser]|[]=[];
   loading: boolean = true;
   name: any;
   sum: any;
-  constructor(private _ApiService: ApiServiceService, private _router:Router) { }
+  getUsers$: Subscription | undefined;
+  constructor(private _ApiService: ApiServiceService,) { }
 
   ngOnInit(): void {
-    
-     this._ApiService.getUsers().
-     subscribe((data:any) => {
-       this.users = data.users;
-       console.log("users", this.users);
-       this.loading = false;
-    });
-      // then((users: User[]) => this.users = users);
+    this.loadUsers()
+  }
+  
+  ngOnDestroy(): void {
+    this.getUsers$?.unsubscribe()
+  }
+
+  loadUsers(): void {
+   this.getUsers$ =  this._ApiService.getUsers().
+      subscribe((data: any) => {
+        this.users = data.users;
+        this.loading = false;
+      });
   }
   get totalRows(): number {
     return this.users.length;
   }
-
-search(){
-  if(this.name ==""){
-    this.ngOnInit();
-  }else{
-    this.users = this.users.filter((res: { name: string; }) => {
-      return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
-    });
-  }
-};
-
 
 }
 

@@ -6,18 +6,16 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiServiceService } from './services/api-service.service';
 import { PrimeModule } from './prime/prime.module';
-import { AuthServiceService } from './services/auth/auth-service.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MessageService} from 'primeng/api';
 import { NgTemplateOutlet } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { APIInterceptor } from './services/api.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginPageComponent,
    ],
   imports: [
     BrowserModule,
@@ -29,8 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ApiServiceService, AuthServiceService, MessageService,
-    { provide: HTTP_INTERCEPTORS, useClass: ApiServiceService, multi: true }],
+  
+  providers: [ApiServiceService,  MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

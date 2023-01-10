@@ -1,23 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpParams, HttpRequest } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from '../Interfaces/users';
 import { Router } from '@angular/router';
 
 @Injectable()
 
-export class ApiServiceService implements HttpInterceptor {
+export class ApiServiceService {
 
   constructor(private http: HttpClient, private route: Router) { }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let token = (localStorage.getItem('tokendata'));
-    let jwtToken = req.clone({
-      setHeaders: {
-        Authorization: `bearer ${token}`
-      }
-    })
-    return next.handle(jwtToken);
-  }
 
   base_url = 'https://dummyjson.com';
 

@@ -7,6 +7,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
+  providers: [ApiServiceService]
 })
 export class UserListComponent implements OnInit {
   users: [IUser]|[]=[];

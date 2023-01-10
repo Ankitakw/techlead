@@ -5,7 +5,8 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [ApiServiceService]
 })
 export class NavbarComponent implements OnInit {
   items: any[] = [];
@@ -18,13 +19,9 @@ export class NavbarComponent implements OnInit {
       }}
   ];
   }
-
-// update(){
-
-// }
 logoutUser(){
   localStorage.removeItem('tokendata');
-  this.route.navigate(['/loginpage']);
+  this.route.navigate(['/login/loginpage']);
 }
 login(){
   return this.ApiService.isAuthenticated();

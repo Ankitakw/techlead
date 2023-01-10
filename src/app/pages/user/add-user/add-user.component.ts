@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
+  providers: [ApiServiceService],
 })
 export class AddUserComponent implements OnInit {
   userDetails: any;
   status: any;    
   message: any;
-
+  addUser$: Subscription | undefined;
   constructor(private ApiService: ApiServiceService, private router: Router) { }
   error = null;
   addForm = new FormGroup({
@@ -26,14 +28,17 @@ export class AddUserComponent implements OnInit {
   }
   submitAddForm() {
     const { firstName, lastName, age, phone, gender, email } = this.addForm.value;
-    this.ApiService.addUser({ firstName, lastName, age, phone, gender, email }).
+    this.addUser$ = this.ApiService.addUser({ firstName, lastName, age, phone, gender, email }).
       subscribe((res: any) => {
         this.userDetails = res;
-        this.router.navigate(['users']);
+        this.router.navigate(['user/users']);
       }, (err) => {
         this.error = err.error.msg;
       });
   }
   ngOnInit(): void { }
+  ngOnDestroy(): void {
+    this.addUser$?.unsubscribe()
+  }
 
 }

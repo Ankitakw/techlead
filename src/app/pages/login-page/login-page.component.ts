@@ -3,12 +3,11 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 import { AbstractControl } from '@angular/forms';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss']
+  styleUrls: ['./login-page.component.scss'],
+  providers: [ApiServiceService]
 })
 export class LoginPageComponent implements OnInit {
   adminDetails: any;

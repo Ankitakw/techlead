@@ -9,10 +9,10 @@ describe('AddUserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      declarations: [ AddUserComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [AddUserComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AddUserComponent);
     component = fixture.componentInstance;

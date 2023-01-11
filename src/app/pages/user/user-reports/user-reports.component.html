@@ -2,7 +2,7 @@
     <div class="rows is-vcentered">
         <div class="columns">
             <div class="column is-4">
-                <div class="is-size-4">{{userDetails.firstName}} {{userDetails.lastName}}</div>
+                <div class="is-size-4">{{userDetails?.firstName}}} {{userDetails?.lastName}}</div>
             </div>
             <div class="column is-auto has-text-right">
                 <button class="button is-danger mr-2" (click)="delete()">Delete user</button>
@@ -12,7 +12,7 @@
         <div class="columns is-vcentered">
             <div class="column is-2">
                 <div class="is-size-8 ">
-                    <p-image src="{{userDetails.image}}" alt="Image" [preview]="true"></p-image>
+                    <p-image src="{{userDetails?.image}}" alt="Image" [preview]="true"></p-image>
                 </div>
             </div>
             <div class="column">
@@ -20,38 +20,38 @@
                     <div class="column is-4">
                         <div class="is-size-8">
                             <span class="has-text-weight-bold">Contact</span>
-                            {{userDetails.phone}}
+                            {{userDetails?.phone}}
                         </div>
                     </div>
                     <div class="column is-4">
                         <div class="is-size-8 ">
                             <span class="has-text-weight-bold">Age</span>
-                            {{userDetails.age}}
+                            {{userDetails?.age}}
                         </div>
                     </div>
                     <div class="column is-4">
                         <div class="is-size-8 ">
                             <span class="has-text-weight-bold">Gender</span>
-                            {{userDetails.gender}}
+                            {{userDetails?.gender}}
                         </div>
                     </div>
 
                     <div class="column is-4">
                         <div class="is-size-8 ">
                             <span class="has-text-weight-bold">Date of Birth</span>
-                            {{userDetails.birthDate}}
+                            {{userDetails?.birthDate}}
                         </div>
                     </div>
                     <div class="column is-4">
                         <div class="is-size-8 ">
                             <span class="has-text-weight-bold">Blood Group</span>
-                            {{userDetails.bloodGroup}}
+                            {{userDetails?.bloodGroup}}
                         </div>
                     </div>
                     <div class="column  is-4">
                         <div class="is-size-8 ">
                             <span class="has-text-weight-bold">Email</span>
-                            {{userDetails.email}}
+                            {{userDetails?.email}}
                         </div>
                     </div>
                 </div>

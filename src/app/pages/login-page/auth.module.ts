@@ -1,4 +1,4 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
@@ -9,7 +9,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  schemas: [NO_ERRORS_SCHEMA],
+
   declarations: [
     LoginPageComponent
   ],

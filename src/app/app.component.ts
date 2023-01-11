@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'ksense-admin-UI';
+  title = 'techlead';
 
   constructor(private _router:Router) {}
 

@@ -22,7 +22,7 @@ export class UserReportsComponent implements OnInit {
     });
   }
   loadUser(id: string): void {
-    this.getSingleUser$ =  this._ApiService.getSingleUser(this.id).
+    this.getSingleUser$ = this._ApiService.getSingleUser(this.id).
       subscribe((data: any) => {
         this.userDetails = data;
         console.log("user", this.userDetails);

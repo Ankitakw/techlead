@@ -10,23 +10,23 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
   providers: [ApiServiceService]
 })
 export class UserListComponent implements OnInit {
-  users: [IUser]|[]=[];
+  users: [IUser] | [] = [];
   loading: boolean = true;
   name: any;
   sum: any;
-  getUsers$: Subscription | undefined;
-  constructor(private _ApiService: ApiServiceService,) { }
+  getUser$: Subscription | undefined;
+  constructor(private ApiService: ApiServiceService,) { }
 
   ngOnInit(): void {
     this.loadUsers()
   }
-  
+
   ngOnDestroy(): void {
-    this.getUsers$?.unsubscribe()
+    this.getUser$?.unsubscribe()
   }
 
   loadUsers(): void {
-   this.getUsers$ =  this._ApiService.getUsers().
+    this.getUser$ = this.ApiService.getUsers().
       subscribe((data: any) => {
         this.users = data.users;
         this.loading = false;

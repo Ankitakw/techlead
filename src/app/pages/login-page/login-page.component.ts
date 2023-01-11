@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   adminDetails: any;
-  status: any;
-  message: any;
 
   constructor(private ApiService: ApiServiceService, private router: Router) { }
   error = null;

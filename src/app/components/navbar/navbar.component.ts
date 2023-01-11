@@ -10,20 +10,22 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 })
 export class NavbarComponent implements OnInit {
   items: any[] = [];
-  constructor(private route:Router, private ApiService:ApiServiceService) { }
+  constructor(private route: Router, private ApiService: ApiServiceService) { }
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Logout', icon: 'pi pi-user-minus', command: () => {
+      {
+        label: 'Logout', icon: 'pi pi-user-minus', command: () => {
           this.logoutUser();
-      }}
-  ];
+        }
+      }
+    ];
   }
-logoutUser(){
-  localStorage.removeItem('tokendata');
-  this.route.navigate(['/login/loginpage']);
-}
-login(){
-  return this.ApiService.isAuthenticated();
-}
+  logoutUser() {
+    localStorage.removeItem('tokendata');
+    this.route.navigate(['/login/loginpage']);
+  }
+  login() {
+    return this.ApiService.isAuthenticated();
+  }
 }

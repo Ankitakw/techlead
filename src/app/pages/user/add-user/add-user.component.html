@@ -1,4 +1,3 @@
-
 <form class="box" [formGroup]="addForm" (ngSubmit)="addForm.status !== 'INVALID' && submitAddForm()">
     <div class="is-size-4 has-text-weight-bold mb-4">Add New User</div>
 
@@ -6,22 +5,24 @@
         <label class="form-label">First Name</label>
         <div class="control">
             <input class="form-control input" id="firstName" formControlName="firstName"
-                [ngClass]="{error: getControl('firstName')?.errors && getControl('firstName')?.touched}" type="text" name=""
-                placeholder="Enter your firstname" value="" required>
+                [ngClass]="{error: getControl('firstName')?.errors && getControl('firstName')?.touched}" type="text"
+                name="" placeholder="Enter your firstname" value="" required>
         </div>
         <div *ngIf="getControl('firstName')?.errors && getControl('firstName')?.touched">
-            <small *ngIf="getControl('firstName')?.errors?.['required']" class="has-text-danger">firstName is required</small>
+            <small *ngIf="getControl('firstName')?.errors?.['required']" class="has-text-danger">firstName is
+                required</small>
         </div>
     </div>
     <div class="field">
         <label class="form-label">Last Name</label>
         <div class="control">
             <input class="form-control input" id="lastName" formControlName="lastName"
-                [ngClass]="{error: getControl('lastName')?.errors && getControl('lastName')?.touched}" type="text" name=""
-                placeholder="Enter your lastname" value="" required>
+                [ngClass]="{error: getControl('lastName')?.errors && getControl('lastName')?.touched}" type="text"
+                name="" placeholder="Enter your lastname" value="" required>
         </div>
         <div *ngIf="getControl('lastName')?.errors && getControl('lastName')?.touched">
-            <small *ngIf="getControl('lastName')?.errors?.['required']" class="has-text-danger">lastname is required</small>
+            <small *ngIf="getControl('lastName')?.errors?.['required']" class="has-text-danger">lastname is
+                required</small>
         </div>
     </div>
     <div class="field">
@@ -46,7 +47,7 @@
             <small *ngIf="getControl('email')?.errors?.['required']" class="has-text-danger">Emailid is required</small>
         </div>
     </div>
-   
+
     <div class="field">
         <label class="form-label">Gender</label>
         <div class="control">
@@ -69,8 +70,8 @@
             <small *ngIf="getControl('phone')?.errors?.['required']" class="has-text-danger">phone is required</small>
         </div>
     </div>
-    
-    <button class="button is-info" pButton pRipple  [disabled]="addForm.status === 'INVALID'" >ADD</button>
+
+    <button class="button is-info" pButton pRipple [disabled]="addForm.status === 'INVALID'">ADD</button>
     <div *ngIf="error touched" class="has-text-danger">
         <span>{{error}}</span>
     </div>

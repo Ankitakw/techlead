@@ -10,7 +10,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 })
 export class AddUserComponent implements OnInit {
   userDetails: any;
-  status: any;    
+  status: any;
   message: any;
   addUser$: Subscription | undefined;
   constructor(private ApiService: ApiServiceService, private router: Router) { }

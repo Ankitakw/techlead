@@ -26,9 +26,7 @@ export class ApiServiceService {
   deleteUser(id: number) {
     return this.http.delete(`${this.base_url}/users/${id}`)
   }
-  // updateUser(id:number){
-  //   return this.http.put(`${this.base_url}/users/${id}`)
-  // }
+
   adminLogin(username: string, password: string) {
     return this.http.post(`${this.base_url}/auth/login`, { username, password });
   }

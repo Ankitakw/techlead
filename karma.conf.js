@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ksense-admin-ui'),
+      dir: require('path').join(__dirname, './coverage/techlead'),
       subdir: '.',
       reporters: [
         { type: 'html' },

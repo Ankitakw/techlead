@@ -7,12 +7,12 @@ import { AuthGuard } from './auth.guard';
 describe('AuthGuard', () => {
   let guard: AuthGuard;
 
-  beforeEach(async() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ ApiServiceService, AuthGuard],
+      providers: [ApiServiceService, AuthGuard],
     })
-    .compileComponents();
+      .compileComponents();
     guard = TestBed.inject(AuthGuard);
   });
   it('should be created', () => {

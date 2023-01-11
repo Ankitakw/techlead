@@ -9,10 +9,10 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      declarations: [ LoginPageComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [LoginPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(LoginPageComponent);
     component = fixture.componentInstance;
@@ -22,4 +22,6 @@ describe('LoginPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });

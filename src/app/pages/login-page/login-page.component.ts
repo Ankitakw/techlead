@@ -27,10 +27,10 @@ export class LoginPageComponent implements OnInit {
       subscribe((res: any) => {
         this.adminDetails = res;
         localStorage.setItem('tokendata', (this.adminDetails.token));
+        localStorage.setItem('admin', (this.adminDetails.username));
         this.router.navigate(['user/users']);
       }, (err) => {
         this.error = err.error.msg;
-        console.log(this.error);
       });
   }
 

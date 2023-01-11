@@ -17,13 +17,12 @@
                     <i class="pi pi-user"></i>
                 </a>
                 <div class="navbar-dropdown" *ngIf="login();">
-                    <a class="navbar-item">
-                        Hello
+                    <a class="navbar-item has-text-info">
+                        Hello {{admin}}
                     </a>
-                    <a class="navbar-item" (click)="logoutUser()">
+                    <a class="navbar-item has-text-danger" (click)="logoutUser()">
                         Logout
                     </a>
-
                 </div>
             </div>
         </div>

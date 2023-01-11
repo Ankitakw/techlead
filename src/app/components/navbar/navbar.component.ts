@@ -11,7 +11,7 @@ import { ApiServiceService } from 'src/app/services/api-service.service';
 export class NavbarComponent implements OnInit {
   items: any[] = [];
   constructor(private route: Router, private ApiService: ApiServiceService) { }
-
+  admin = (localStorage.getItem('admin'));
   ngOnInit(): void {
     this.items = [
       {

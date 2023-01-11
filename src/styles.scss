@@ -16,9 +16,11 @@ html{
 }
 .card-footer{
     display: block;
-    // background-color: #2196f3;
     padding: 10px;
 }
 .error {
     border: 1px solid red;
+}
+.navbar-item, .navbar-link{
+    margin-right: 1rem;
 }

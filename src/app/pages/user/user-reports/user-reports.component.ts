@@ -25,7 +25,6 @@ export class UserReportsComponent implements OnInit {
     this.getSingleUser$ = this._ApiService.getSingleUser(this.id).
       subscribe((data: any) => {
         this.userDetails = data;
-        console.log("user", this.userDetails);
       });
   }
 
